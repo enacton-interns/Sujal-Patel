@@ -1,0 +1,585 @@
+:root {
+  /* Main Colors */
+  --primary: #68328a;
+  --secondary: #d64729;
+  --white: #ffffff;
+  --light: #f6f6f6;
+  --black: #000000;
+  --dark: #09090b;
+  /* Fonts */
+  --font-dm-sans: "DM Sans", sans-serif;
+
+  /* Custom Colors */
+  --light-80: color-mix(in srgb, var(--light) 80%, transparent);
+  --dark-80: color-mix(in srgb, var(--dark) 80%, transparent);
+  --dark-70: color-mix(in srgb, var(--dark) 70%, transparent);
+
+  --primary-light: color-mix(in srgb, var(--primary) 30%, var(--light));
+  --primary-tint: color-mix(in srgb, var(--primary) 80%, transparent);
+  --border-outline: color-mix(in srgb, var(--dark) 5%, transparent);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-dm-sans);
+  font-optical-sizing: auto;
+  background-color: var(--light);
+}
+body::selection {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+/* ===================
+ Common Components
+ =================== */
+
+section,
+footer {
+  padding-block: 80px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+a:hover {
+  color: var(--dark);
+}
+.container {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Button group */
+.button-group-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+/* Section Head */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+.section-head p {
+  max-width: 80%;
+}
+.section-body {
+  margin-top: 40px;
+  display: flex;
+  gap: 90px;
+}
+.section-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 40px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-img-wrapper {
+  max-height: 90px;
+  width: max-content;
+}
+
+/* ===================
+ Component Variants
+ =================== */
+
+/* Buttons
+ =================== */
+.button {
+  border-radius: 50px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  width: min-content;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.button--primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+.button--primary:hover {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.button--secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+.button--secondary:hover {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.button--outline {
+  border: 1px solid var(--border-outline);
+  color: var(--dark);
+}
+.button--outline:hover {
+  border: 1px solid var(--dark);
+  color: var(--dark);
+}
+
+.button--outline-inverse {
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+.button--outline-inverse:hover {
+  background-color: var(--white);
+  color: var(--dark);
+}
+
+/* Titles and descs
+ =================== */
+/* Hero Typography */
+.hero-title {
+  font-weight: 600;
+  color: var(--white);
+  font-size: 60px;
+}
+.hero-desc {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--light-80);
+}
+
+/* Section Typography */
+.section-title {
+  font-weight: 600;
+  font-size: 50px;
+  color: var(--dark);
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--dark-80);
+}
+.service-section .section-title,
+.payout-section .section-title {
+  color: var(--white);
+}
+.service-section .section-desc {
+  color: var(--light-80);
+}
+
+/* Card Typography */
+.card-title {
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--dark);
+}
+.card-desc {
+  color: var(--dark-80);
+  font-size: 17px;
+}
+
+/* Footer Section Typography */
+.details-group-title {
+  font-weight: 400;
+  color: var(--dark);
+  font-size: 20px;
+}
+.details-group-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  color: var(--dark-70);
+}
+
+/* Card Grid
+=================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+.card-grid--squished {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+/* Strip */
+.strip {
+  width: 100%;
+  background-color: var(--primary);
+  display: grid;
+  place-items: center;
+}
+.strip marquee,
+.strip p {
+  padding: 15px 20px;
+  color: var(--white);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===================
+Navigation Bar
+ =================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--dark) 5%, transparent);
+}
+
+.nav-section {
+  padding-block: 20px;
+}
+.static-nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.collapsible-nav-wrapper {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+  position: absolute;
+  background-color: var(--white);
+  width: 100%;
+  left: 0;
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--dark) 5%, transparent);
+}
+/* Navigation logo */
+
+.nav-logo-wrapper {
+  max-height: 80px;
+  height: 100%;
+  aspect-ratio: 8/7;
+}
+
+/* Right Navigation */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Navigation Options */
+.nav-options {
+  display: flex;
+  gap: 30px;
+}
+.nav-option {
+  height: fit-content;
+  font-size: 17px;
+  color: var(--dark-70);
+}
+
+/* ===================
+Hero Section
+ ===================*/
+.hero-section {
+  padding-block: 0;
+}
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+.hero-background-img-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary-tint);
+}
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-block: 157px;
+}
+
+/* ===================
+Service Section 
+ ===================*/
+.service-section {
+  background-color: var(--primary);
+}
+.service-section .card {
+  min-height: 370px;
+}
+
+/* ===================
+Payout Section
+ ===================*/
+.payout-section {
+  padding-block: 0;
+}
+.payout-section .payout-wrapper {
+  padding-block: 80px;
+  background-color: var(--primary);
+}
+
+/* ===================
+Footer Section
+ ===================*/
+.footer-wrapper {
+  display: flex;
+}
+
+footer .section-head {
+  max-width: 580px;
+  margin-right: auto;
+  align-items: start;
+  text-align: left;
+}
+footer .section-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+}
+.details-group {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  gap: 10px;
+}
+
+.contact-icon-wrapper {
+  background-color: var(--primary);
+  height: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  padding: 12px;
+}
+.social-group {
+  display: flex;
+  gap: 20px;
+}
+.social-group a:hover {
+  scale: 1.2;
+}
+
+.social-icon-wrapper {
+  height: 20px;
+  width: max-content;
+}
+
+/* Utility Classes */
+.device-md--show {
+  display: none;
+}
+.device-sm--show {
+  display: none;
+}
+
+/* ===================
+Responsive Styles
+ =================== */
+
+@media (max-width: 1536px) {
+  .footer-wrapper {
+    flex-direction: column;
+  }
+  footer .section-head {
+    max-width: none;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  footer .section-body {
+    margin-top: 40px;
+  }
+  .service-section .card,
+  .card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-title {
+    font-size: 40px;
+  }
+  .hero-desc {
+    font-size: 22px;
+  }
+  .device-md--hide {
+    display: none;
+  }
+  .device-md--show {
+    display: block;
+  }
+  #menu-btn {
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+  }
+  .collapsible-nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .collapsible-nav-wrapper .nav-options {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .collapsible-nav-wrapper div {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .button {
+    padding: 10px 20px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+  .hero-desc {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+  .card-title {
+    font-size: 22px;
+  }
+
+  .details-group-title {
+    font-size: 16px;
+  }
+  .details-group-item {
+    font-size: 14px;
+  }
+
+  footer .section-body {
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-icon-wrapper {
+    height: 35px;
+    min-width: 35px;
+    padding: 8px;
+  }
+  .hero-content {
+    padding-block: 80px;
+  }
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  .card-grid--squished {
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .strip marquee,
+  .strip p {
+    padding: 5px 20px;
+  }
+
+  .hero-content {
+    padding-block: 50px;
+  }
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-desc {
+    font-size: 16px;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+  .section-desc {
+    font-size: 16px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+  .card-desc {
+    font-size: 16px;
+  }
+
+  .details-group-title {
+    font-size: 16px;
+  }
+  .details-group-item {
+    font-size: 14px;
+  }
+
+  .section-head p {
+    max-width: none;
+  }
+  .nav-logo-wrapper {
+    max-height: 60px;
+  }
+  .device-sm--hide {
+    display: none;
+  }
+  .device-sm--show {
+    display: block;
+  }
+  .card {
+    padding: 20px;
+  }
+  .card-img-wrapper {
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-group-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer .section-body {
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

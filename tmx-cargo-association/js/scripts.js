@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector("#menu-btn");
-  const collapsibleNav = document.querySelector(".nav-collapsible");
+  const collapsibleNav = document.querySelector(".collapsible-nav-wrapper");
 
   let menuOpen = false;
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle window resize
   window.addEventListener("resize", function () {
     if (menuOpen) {
-      window.innerWidth <= 768
+      window.innerWidth <= 1280
         ? (document.body.style.overflow = "hidden")
         : (document.body.style.overflow = "visible");
     }
